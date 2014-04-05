@@ -1,9 +1,9 @@
 {
-    "name": "dev3gntw/auth",
+    "name": "pulpitum/auth",
     "description": "",
     "authors": [{
-        "name": "3gntw, lda",
-        "email": "devel@3gnt.net"
+        "name": "Fulvio Carvalhido",
+        "email": "inluxc@gmail.com"
     }],
     "require": {
         "php": ">=5.3.0",
@@ -16,8 +16,8 @@
             "src/models"
         ],
         "psr-0": {
-            "Dev3gntw\\Auth\\": "src/"
+            "Pulpitum\\Auth\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }

@@ -12,7 +12,7 @@ use Route;
 use Validator;
 use Session;
 use URL;
-use Dev3gntw\Auth\Models\Master\Permissions as PermissionProvider;
+use Pulpitum\Auth\Models\Master\Permissions as PermissionProvider;
 
 class PermissionsController extends BackendController {
 
@@ -65,9 +65,9 @@ class PermissionsController extends BackendController {
             // create permission
             $permission = $this->entidade->createPermission(Input::all());
         }
-        catch (\Dev3gntw\Auth\Models\Exceptions\NameRequiredException $e) {}
-        catch (\Dev3gntw\Auth\Models\Exceptions\ValueRequiredException $e) {}
-        catch (\Dev3gntw\Auth\Models\Exceptions\PermissionExistsException $e) {
+        catch (\Pulpitum\Auth\Models\Exceptions\NameRequiredException $e) {}
+        catch (\Pulpitum\Auth\Models\Exceptions\ValueRequiredException $e) {}
+        catch (\Pulpitum\Auth\Models\Exceptions\PermissionExistsException $e) {
 		    Session::flash('warning', trans('auth::messages.permissions_exists'));
 		    return Redirect::to(URL::previous())->withInput();
         }
@@ -102,7 +102,7 @@ class PermissionsController extends BackendController {
 		    	return Redirect::to(URL::previous())->withInput();
             }
         }
-        catch (\Dev3gntw\Auth\Models\Exceptions\PermissionExistsException $e)
+        catch (\Pulpitum\Auth\Models\Exceptions\PermissionExistsException $e)
         {
             Session::flash('warning', trans('auth::messages.permissions_exists'));
 	    	return Redirect::to(URL::previous())->withInput();
@@ -117,7 +117,7 @@ class PermissionsController extends BackendController {
             $permission = $this->entitdade->findById($id);
             $permission->delete();
         }
-        catch (\Dev3gntw\Auth\Models\Exceptions\PermissionNotFoundException $e)
+        catch (\Pulpitum\Auth\Models\Exceptions\PermissionNotFoundException $e)
         {
             Session::flash('warning', trans('auth::messages.not-found'));
 	    	return Redirect::to(URL::previous());

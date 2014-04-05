@@ -1,7 +1,7 @@
-<?php namespace Dev3gntw\Auth\Models\Values;
+<?php namespace Pulpitum\Auth\Models\Values;
 
-use Dev3gntw\Core\Models\Base;
-use \Dev3gntw\Auth\Models\Master\Users;
+use Pulpitum\Core\Models\Base;
+use \Pulpitum\Auth\Models\Master\Users;
 use DB;
 
 class User extends Users {

@@ -1,7 +1,7 @@
-<?php namespace Dev3gntw\Auth\Models\Master;
+<?php namespace Pulpitum\Auth\Models\Master;
 
-use Dev3gntw\Core\Models\Base;
-use Dev3gntw\Core\Models\Helpers\Tools;
+use Pulpitum\Core\Models\Base;
+use Pulpitum\Core\Models\Helpers\Tools;
 use Sentry;
 use Validator;
 
@@ -47,14 +47,14 @@ class Users extends Base {
      */
 	public function actionsUrl(){
 		return array(
-			'list'			=> array("path"=>'users', "as"=>"Users", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@getIndex", "method"=>"get", "permission"=>"users", "addToMenu"=>true, "toMenu"=>"admin", "reference"=>"users", "label"=>"Utilizadores", "parent"=>"auth", 'weight'=>0),
-			'edit'			=> array("path"=>'users/edit/{id}', "as"=>"EditUsers", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@getEdit", "method"=>"get", "permission"=>"users-edit"),
-			'delete' 		=> array("path"=>'users/delete/{id}', "as"=>"DeleteUsers", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@getDelete", "method"=>"get", "permission"=>"users-delete"),
-			'add' 			=> array("path"=>'users/add', "as"=>"AddUsers", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@getAdd", "method"=>"get", "permission"=>"users-add"),
-			'view' 			=> array("path"=>'users/{id}', "as"=>"GetUsers", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@getView", "method"=>"get", "permission"=>"users-view"),
-			'post' 			=> array("path"=>'users/edit/{id}', "as"=>"EditUsers", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@postEdit", "method"=>"post", "permission"=>"users-edit"),
-			'post-add'		=> array("path"=>'users/add', "as"=>"AddUsers", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@postAdd", "method"=>"post", "permission"=>"users-add"),
-			'post-password'	=> array("path"=>'users/password', "as"=>"PostChangePassword", "controller"=>"Dev3gntw\Auth\Controllers\UsersController@postUpdatePassword", "method"=>"post", "permission"=>"users-post-password")
+			'list'			=> array("path"=>'users', "as"=>"Users", "controller"=>"Pulpitum\Auth\Controllers\UsersController@getIndex", "method"=>"get", "permission"=>"users", "addToMenu"=>true, "toMenu"=>"admin", "reference"=>"users", "label"=>"Utilizadores", "parent"=>"auth", 'weight'=>0),
+			'edit'			=> array("path"=>'users/edit/{id}', "as"=>"EditUsers", "controller"=>"Pulpitum\Auth\Controllers\UsersController@getEdit", "method"=>"get", "permission"=>"users-edit"),
+			'delete' 		=> array("path"=>'users/delete/{id}', "as"=>"DeleteUsers", "controller"=>"Pulpitum\Auth\Controllers\UsersController@getDelete", "method"=>"get", "permission"=>"users-delete"),
+			'add' 			=> array("path"=>'users/add', "as"=>"AddUsers", "controller"=>"Pulpitum\Auth\Controllers\UsersController@getAdd", "method"=>"get", "permission"=>"users-add"),
+			'view' 			=> array("path"=>'users/{id}', "as"=>"GetUsers", "controller"=>"Pulpitum\Auth\Controllers\UsersController@getView", "method"=>"get", "permission"=>"users-view"),
+			'post' 			=> array("path"=>'users/edit/{id}', "as"=>"EditUsers", "controller"=>"Pulpitum\Auth\Controllers\UsersController@postEdit", "method"=>"post", "permission"=>"users-edit"),
+			'post-add'		=> array("path"=>'users/add', "as"=>"AddUsers", "controller"=>"Pulpitum\Auth\Controllers\UsersController@postAdd", "method"=>"post", "permission"=>"users-add"),
+			'post-password'	=> array("path"=>'users/password', "as"=>"PostChangePassword", "controller"=>"Pulpitum\Auth\Controllers\UsersController@postUpdatePassword", "method"=>"post", "permission"=>"users-post-password")
 			
 		);
 	}

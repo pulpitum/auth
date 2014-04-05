@@ -20,7 +20,7 @@ class AuthServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('dev3gntw/auth');
+		$this->package('pulpitum/auth');
 		include __DIR__.'/../../filters.php';
 		include __DIR__.'/../../routes.php';
 		

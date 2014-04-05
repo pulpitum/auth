@@ -39,13 +39,13 @@ class Groups extends Base {
      */
 	public function actionsUrl(){
 		return array(
-			'list'		=> array("path"=>'groups', "as"=>"Groups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@getIndex", "method"=>"get", "permission"=>"groups", "addToMenu"=>true, "toMenu"=>"admin", "reference"=>"groups", "label"=>"Grupos de Utilizador", "parent"=>"auth", 'weight'=>1),
-			'edit'		=> array("path"=>'groups/edit/{id}', "as"=>"EditGroups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@getEdit", "method"=>"get", "permission"=>"groups-edit"),
-			'delete' 	=> array("path"=>'groups/delete/{id}', "as"=>"DeleteGroups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@getDelete", "method"=>"get", "permission"=>"groups-delete"),
-			'add' 		=> array("path"=>'groups/add', "as"=>"AddGroups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@getAdd", "method"=>"get", "permission"=>"groups-add"),
-			'view' 		=> array("path"=>'groups/{id}', "as"=>"GetGroups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@getView", "method"=>"get", "permission"=>"groups-view"),
-			'post' 		=> array("path"=>'groups/edit/{id}', "as"=>"EditGroups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@postEdit", "method"=>"post", "permission"=>"groups-edit"),
-			'post-add'	=> array("path"=>'groups/add', "as"=>"AddGroups", "controller"=>"Dev3gntw\Auth\Controllers\GroupsController@postAdd", "method"=>"post", "permission"=>"groups-add")
+			'list'		=> array("path"=>'groups', "as"=>"Groups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@getIndex", "method"=>"get", "permission"=>"groups", "addToMenu"=>true, "toMenu"=>"admin", "reference"=>"groups", "label"=>"Grupos de Utilizador", "parent"=>"auth", 'weight'=>1),
+			'edit'		=> array("path"=>'groups/edit/{id}', "as"=>"EditGroups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@getEdit", "method"=>"get", "permission"=>"groups-edit"),
+			'delete' 	=> array("path"=>'groups/delete/{id}', "as"=>"DeleteGroups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@getDelete", "method"=>"get", "permission"=>"groups-delete"),
+			'add' 		=> array("path"=>'groups/add', "as"=>"AddGroups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@getAdd", "method"=>"get", "permission"=>"groups-add"),
+			'view' 		=> array("path"=>'groups/{id}', "as"=>"GetGroups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@getView", "method"=>"get", "permission"=>"groups-view"),
+			'post' 		=> array("path"=>'groups/edit/{id}', "as"=>"EditGroups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@postEdit", "method"=>"post", "permission"=>"groups-edit"),
+			'post-add'	=> array("path"=>'groups/add', "as"=>"AddGroups", "controller"=>"Pulpitum\Auth\Controllers\GroupsController@postAdd", "method"=>"post", "permission"=>"groups-add")
 		);
 	}
 

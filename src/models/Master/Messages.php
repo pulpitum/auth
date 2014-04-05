@@ -1,8 +1,8 @@
-<?php namespace Dev3gntw\Auth\Models\Master;
+<?php namespace Pulpitum\Auth\Models\Master;
 
-use Dev3gntw\Core\Models\Helpers\Tools;
-use Dev3gntw\Auth\Models\Master\Groups;
-use Dev3gntw\Core\Models\Base;
+use Pulpitum\Core\Models\Helpers\Tools;
+use Pulpitum\Auth\Models\Master\Groups;
+use Pulpitum\Core\Models\Base;
 use Sentry;
 
 class Messages extends Base {
@@ -54,11 +54,11 @@ class Messages extends Base {
      */
 	public function actionsUrl(){
 		return array(
-			'list'		=> array("path"=>'messages', "as"=>"Messages", "controller"=>"Dev3gntw\Auth\Controllers\MessagesController@getIndex", "method"=>"get", "permission"=>"messages", "addToMenu"=>false, "toMenu"=>"admin", "reference"=>"messages", "label"=>"Mensagens", "parent"=>"auth", 'weight'=>0),
-			'delete' 	=> array("path"=>'messages/delete/{id}', "as"=>"DeleteMessages", "controller"=>"Dev3gntw\Auth\Controllers\MessagesController@getDelete", "method"=>"get", "permission"=>"messages-delete"),
-			'add' 		=> array("path"=>'messages/add', "as"=>"AddMessages", "controller"=>"Dev3gntw\Auth\Controllers\MessagesController@getAjaxAdd", "method"=>"get", "permission"=>"messages-add"),
-			'view' 		=> array("path"=>'messages/{id}', "as"=>"GetMessages", "controller"=>"Dev3gntw\Auth\Controllers\MessagesController@getView", "method"=>"get", "permission"=>"messages-view", "class"=>"ajax_request"),
-			'post-add'	=> array("path"=>'messages/add', "as"=>"AddMessages", "controller"=>"Dev3gntw\Auth\Controllers\MessagesController@postAjaxAdd", "method"=>"post", "permission"=>"messages-add")
+			'list'		=> array("path"=>'messages', "as"=>"Messages", "controller"=>"Pulpitum\Auth\Controllers\MessagesController@getIndex", "method"=>"get", "permission"=>"messages", "addToMenu"=>false, "toMenu"=>"admin", "reference"=>"messages", "label"=>"Mensagens", "parent"=>"auth", 'weight'=>0),
+			'delete' 	=> array("path"=>'messages/delete/{id}', "as"=>"DeleteMessages", "controller"=>"Pulpitum\Auth\Controllers\MessagesController@getDelete", "method"=>"get", "permission"=>"messages-delete"),
+			'add' 		=> array("path"=>'messages/add', "as"=>"AddMessages", "controller"=>"Pulpitum\Auth\Controllers\MessagesController@getAjaxAdd", "method"=>"get", "permission"=>"messages-add"),
+			'view' 		=> array("path"=>'messages/{id}', "as"=>"GetMessages", "controller"=>"Pulpitum\Auth\Controllers\MessagesController@getView", "method"=>"get", "permission"=>"messages-view", "class"=>"ajax_request"),
+			'post-add'	=> array("path"=>'messages/add', "as"=>"AddMessages", "controller"=>"Pulpitum\Auth\Controllers\MessagesController@postAjaxAdd", "method"=>"post", "permission"=>"messages-add")
 		);
 	}
 

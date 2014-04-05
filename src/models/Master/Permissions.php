@@ -1,7 +1,7 @@
-<?php namespace Dev3gntw\Auth\Models\Master;
+<?php namespace Pulpitum\Auth\Models\Master;
 
-use Dev3gntw\Core\Models\Base;
-use Dev3gntw\Core\Models\Helpers\Tools;
+use Pulpitum\Core\Models\Base;
+use Pulpitum\Core\Models\Helpers\Tools;
 
 class Permissions extends Base {
 
@@ -149,13 +149,13 @@ class Permissions extends Base {
      */
 	public function actionsUrl(){
 		return array(
-			'list'		=> array("path"=>'permissions', "as"=>"Permissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@getIndex", "method"=>"get", "permission"=>"permissions", "addToMenu"=>true, "toMenu"=>"admin", "reference"=>"permissions", "label"=>"Permissões", "parent"=>"auth", 'weight'=>2),
-			'edit'		=> array("path"=>'permissions/edit/{id}', "as"=>"EditPermissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@getEdit", "method"=>"get", "permission"=>"permissions-edit"),
-			//'delete' 	=> array("path"=>'permissions/delete/{id}', "as"=>"DeletePermissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@getDelete", "method"=>"get", "permission"=>"permissions-delete"),
-			//'add' 		=> array("path"=>'permissions/add', "as"=>"AddPermissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@getAdd", "method"=>"get", "permission"=>"permissions-add"),
-			//'view' 		=> array("path"=>'permissions/{id}', "as"=>"GetPermissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@getView", "method"=>"get", "permission"=>"permissions-view"),
-			'post' 		=> array("path"=>'permissions/edit/{id}', "as"=>"EditPermissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@postEdit", "method"=>"post", "permission"=>"permissions-edit"),
-			//'post-add'	=> array("path"=>'permissions/add', "as"=>"AddPermissions", "controller"=>"Dev3gntw\Auth\Controllers\PermissionsController@postAdd", "method"=>"post", "permission"=>"permissions-add")
+			'list'		=> array("path"=>'permissions', "as"=>"Permissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@getIndex", "method"=>"get", "permission"=>"permissions", "addToMenu"=>true, "toMenu"=>"admin", "reference"=>"permissions", "label"=>"Permissões", "parent"=>"auth", 'weight'=>2),
+			'edit'		=> array("path"=>'permissions/edit/{id}', "as"=>"EditPermissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@getEdit", "method"=>"get", "permission"=>"permissions-edit"),
+			//'delete' 	=> array("path"=>'permissions/delete/{id}', "as"=>"DeletePermissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@getDelete", "method"=>"get", "permission"=>"permissions-delete"),
+			//'add' 		=> array("path"=>'permissions/add', "as"=>"AddPermissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@getAdd", "method"=>"get", "permission"=>"permissions-add"),
+			//'view' 		=> array("path"=>'permissions/{id}', "as"=>"GetPermissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@getView", "method"=>"get", "permission"=>"permissions-view"),
+			'post' 		=> array("path"=>'permissions/edit/{id}', "as"=>"EditPermissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@postEdit", "method"=>"post", "permission"=>"permissions-edit"),
+			//'post-add'	=> array("path"=>'permissions/add', "as"=>"AddPermissions", "controller"=>"Pulpitum\Auth\Controllers\PermissionsController@postAdd", "method"=>"post", "permission"=>"permissions-add")
 		);
 	}
 

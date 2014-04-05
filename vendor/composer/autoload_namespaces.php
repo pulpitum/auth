@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Dev3gntw\\Auth\\' => array($baseDir . '/src'),
+    'Pulpitum\\Auth\\' => array($baseDir . '/src'),
 );
