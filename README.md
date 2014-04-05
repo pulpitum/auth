@@ -1,0 +1,4 @@
+auth
+====
+
+Pulpitum authentication package
