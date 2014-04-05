@@ -1,4 +1,6 @@
-<?php namespace Pulpitum\Auth;
+<?php 
+
+namespace Pulpitum\Auth;
 
 use Illuminate\Support\ServiceProvider;
 use Menu;
@@ -24,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider {
 		include __DIR__.'/../../filters.php';
 		include __DIR__.'/../../routes.php';
 		
-		Menu::addItem( array( 'text' =>  trans('auth::core.auth'), 'URL' => '#', 'reference'=>"auth", 'parent' => 'configuration', 'weight' => 2, 'hasChilds'=>true ) )->toMenu( 'admin' );
+		//Menu::addItem( array( 'text' =>  trans('auth::core.auth'), 'URL' => '#', 'reference'=>"auth", 'parent' => 'configuration', 'weight' => 2, 'hasChilds'=>true ) )->toMenu( 'admin' );
 	}
 
 	/**
