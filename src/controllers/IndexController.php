@@ -156,7 +156,7 @@ class IndexController extends FrontendController {
 		    Session::flash('warning', trans('auth::messages.reset_code_error'));
 		    return Redirect::route('recover');
 		}  
-		  	
+
     	$this->theme = Theme::uses('frontend')->layout('logout');
         return $this->theme->of('auth::reset')->render();
     } 
