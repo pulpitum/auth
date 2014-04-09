@@ -24,4 +24,5 @@ Then run
     composer update
 
 The you have to insert the following into app/config/app.php
+    
     'Pulpitum\Auth\AuthServiceProvider',
