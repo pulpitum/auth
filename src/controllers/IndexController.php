@@ -38,7 +38,6 @@ class IndexController extends FrontendController {
 			$theme = $this->theme;
 			
         return $theme->of('auth::login')->render();
-		
     }
 
     /**
@@ -75,6 +74,7 @@ class IndexController extends FrontendController {
 			Session::flash('warning', trans('auth::messages.login_failed'));
 		    return Redirect::route('login')->withInput();
         }
+
 		if(Request::is('admin/*'))
 			$url = URL::route('admin');
 		else{
