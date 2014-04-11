@@ -26,7 +26,6 @@ class IndexController extends FrontendController {
     */
     public function getLogin()
     {
-	
 		if(class_exists("Sentry") && Sentry::check()){
 
 			//Is Backoffice?
