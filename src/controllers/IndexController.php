@@ -26,10 +26,19 @@ class IndexController extends FrontendController {
     */
     public function getLogin()
     {
-		if(Sentry::check()){
-			$url = Session::get('attemptedUrl');
-			Session::forget('attemptedUrl');
-			return Redirect::to($url);
+		if(class_exists("Sentry") && Sentry::check()){
+			//Is Backoffice?
+			if(Request::is('admin/*')){
+				$admin = Sentry::findGroupByName('Admin');
+				
+				//I'm admin?
+				if(Sentry::getUser()->inGroup($admin)){
+					$url = Redirect::route('admin');
+					return Redirect::to($url);
+				}
+			}else{
+				return Redirect::to("/");
+			}
 		}
 		
 		if(Request::is('admin/*'))
@@ -47,7 +56,6 @@ class IndexController extends FrontendController {
     {
         try
         {
-
             $validator = Validator::make(Input::all(), $this->login_rules);
 
             if($validator->fails())
@@ -79,11 +87,11 @@ class IndexController extends FrontendController {
 			$url = URL::route('admin');
 		else{
 			$url = Session::get('attemptedUrl');
-			if(!isset($url))
-			{
-				$url = URL::route('home');
-			}
 			Session::forget('attemptedUrl');
+			if($url == NULL)
+			{
+				$url = "/"; //URL::route('home');
+			}
 		}
         return Redirect::to($url);
     }
@@ -94,8 +102,8 @@ class IndexController extends FrontendController {
     public function getLogout()
     {
         Sentry::logout();
-		Session::flash('success', trans('auth::messages.logout'));
-        return Redirect::route('login');
+		Session::forget('attemptedUrl');
+        return Redirect::to("/");
     }
 
     /**
@@ -103,7 +111,7 @@ class IndexController extends FrontendController {
     */
     public function getAccessDenied()
     {
-		Session::flash('success', trans('auth::messages.access_denied'));
+		//Session::flash('success', trans('auth::messages.access_denied'));
         return Redirect::route('dash');
     }
 
