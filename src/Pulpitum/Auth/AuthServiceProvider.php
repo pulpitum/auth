@@ -4,6 +4,8 @@ namespace Pulpitum\Auth;
 
 use Illuminate\Support\ServiceProvider;
 use Menu;
+use Sentry;
+use URL;
 
 
 class AuthServiceProvider extends ServiceProvider {
@@ -25,8 +27,18 @@ class AuthServiceProvider extends ServiceProvider {
 		$this->package('pulpitum/auth');
 		include __DIR__.'/../../filters.php';
 		include __DIR__.'/../../routes.php';
-		
-		//Menu::addItem( array( 'text' =>  trans('auth::core.auth'), 'URL' => '#', 'reference'=>"auth", 'parent' => 'configuration', 'weight' => 2, 'hasChilds'=>true ) )->toMenu( 'admin' );
+
+		if(class_exists("Menu") and Sentry::check()){
+			Menu::addItem( array( 'text' => '<i class="icon-cog"></i> Account <b class="caret"></b>', 'URL' => '#', 'reference'=>"account", 'weight' => 0, 'hasChilds'=>true ) )->toMenu( 'profile' );
+			Menu::addItem( array( 'text' => 'Settings', 'URL' => 'javascript:;', 'reference'=>"settings", 'parent'=>"account", 'weight' => 0, 'hasChilds'=>true ) )->toMenu( 'profile' );
+			Menu::addItem( array( 'text' => 'Help', 'URL' => 'javascript:;', 'reference'=>"help", 'parent'=>"account", 'weight' => 0, 'hasChilds'=>true ) )->toMenu( 'profile' );
+			
+			Menu::addItem( array( 'text' => '<i class="icon-user"></i>'.Sentry::getUser()->firstname.' <b class="caret"></b>', 'URL' => '#', 'reference'=>"auth", 'weight' => 1, 'hasChilds'=>true ) )->toMenu( 'profile' );
+			Menu::addItem( array( 'text' => 'Profile', 'URL' => URL::route('profile'), 'reference'=>"profile", 'parent'=>"auth",'weight' => 0, 'hasChilds'=>true ) )->toMenu( 'profile' );
+			Menu::addItem( array( 'text' => 'Logout', 'URL' => URL::route('logout'), 'reference'=>"logout", 'parent'=>"auth", 'weight' => 1, 'hasChilds'=>true ) )->toMenu( 'profile' );
+			Menu::setMenuType('bootstrap', 'profile', 'Pulpitum\Auth\Menu', "nav pull-right");
+		}
+
 	}
 
 	/**

@@ -29,7 +29,7 @@ class Users extends Base {
 		$this->setColumnsList();
 		$this->getFillableFields();
 		$this->setCheckboxFields();
-		$this->setEntidadeTitle( 'auth::core.users' );
+		$this->setEntityTitle( 'auth::core.users' );
 
 		Validator::extend('owner', function($attribute, $value, $parameters){
 		    return Sentry::check() && $value == Sentry::getUser()->getId();

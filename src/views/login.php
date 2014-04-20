@@ -43,13 +43,7 @@
 
 
 <?php if(!Request::is('admin/*')){ ?>
-<<<<<<< HEAD
 	<div class="login-extra">
 		<a href="#">Reset Password</a>
 	</div> <!-- /login-extra -->
-=======
-<div class="login-extra">
-	<a href="#">Reset Password</a>
-</div> <!-- /login-extra -->
->>>>>>> f0ad26d1037b0164cfe814f91cd1a61b245da78f
 <?php } ?>

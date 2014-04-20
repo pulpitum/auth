@@ -12,4 +12,6 @@
 	
 	Route::get('/reset', 		array('as' => 'reset',  'uses' => 'Pulpitum\Auth\Controllers\IndexController@getReset'));
 	Route::post('/reset', 		array('as' => 'postReset',  'uses' => 'Pulpitum\Auth\Controllers\IndexController@postReset', "before"=>"csrf"));
+
+	Route::get('/admin/profile', 		array('as' => 'profile',  'uses' => 'Pulpitum\Auth\Controllers\Admin\UsersController@getProfile'));
 ?>
