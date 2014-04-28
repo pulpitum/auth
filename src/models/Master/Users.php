@@ -4,6 +4,7 @@ use Pulpitum\Core\Models\Base;
 use Pulpitum\Core\Models\Helpers\Tools;
 use Sentry;
 use Validator;
+use S;
 
 class Users extends Base {
 
@@ -12,7 +13,11 @@ class Users extends Base {
 	protected $fillable = array();
 	protected $modelName = 'users';	
 
+	protected $title_collumn = "first_name";
+
 	public $timestamps = false;	
+
+	protected $searchable_collumns = array("first_name", "last_name", "email");
 	
 	protected $sections = array(
 		"dados"				=> array("label"=> "Dados", "hideInCreate"=>false, "hideInUpdate"=>false,"tab"=>"dados") , 
@@ -36,6 +41,25 @@ class Users extends Base {
 		});
 
 	}
+
+	public function getUrl(){
+		return $this->identifier;
+	}
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($user)
+        {
+            $user->identifier = S::dasherize($user->first_name."-".$user->last_name);
+        });
+
+        /*static::updating(function($post)
+        {
+            $user->identifier = Auth::user()->id;
+        });*/
+    }
 
 
     /**
@@ -103,4 +127,9 @@ class Users extends Base {
 		}
 	}
 	
+
+	public static function View($identifier){
+		$page = Users::where("identifier", $identifier)->where("activated", 1)->first();
+		return $page;
+	}
 }

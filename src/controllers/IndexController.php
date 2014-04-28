@@ -244,4 +244,35 @@ class IndexController extends FrontendController {
 		}
     }
 
+
+        /**
+     * getReset
+     * 
+     * @access public
+     *
+     * @return mixed Value.
+     */
+    public function getUser()
+    {
+    	$this->theme->setClass("user");
+    	$this->theme = Theme::uses('frontend')->layout('default');
+        return $this->theme->of('auth::user', array("model"=>Sentry::getUser(), "public"=>false))->render();
+    }     
+
+    public function getPublicUserProfile()
+    {
+    	$uri = Request::path();
+		
+		$uri = Request::path();
+		$user = \Pulpitum\Auth\Models\Master\Users::View($uri);
+
+		if($user == NULL)
+			App::abort(404);
+
+		$title = $user->first_name;
+		$this->theme->setClass("user");
+		$this->theme->prependTitle($title." | ");
+		return $this->theme->of('auth::user', array("model" => $user, "public"=>true))->render();
+    } 
+
 }

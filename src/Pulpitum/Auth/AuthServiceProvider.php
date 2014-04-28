@@ -38,6 +38,7 @@ class AuthServiceProvider extends ServiceProvider {
 			Menu::addItem( array( 'text' => 'Logout', 'URL' => URL::route('logout'), 'reference'=>"logout", 'parent'=>"auth", 'weight' => 1, 'hasChilds'=>true ) )->toMenu( 'profile' );
 			Menu::setMenuType('bootstrap', 'profile', 'Pulpitum\Auth\Menu', "nav pull-right");
 		}
+		
 
 	}
 
@@ -48,7 +49,12 @@ class AuthServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		
+		$searchable = array("users"=>"Pulpitum\Auth\Models\Master\Users");
+		if(!isset($this->app['searchable'])){
+			$this->app['searchable'] = $searchable;
+		}else{
+			$this->app['searchable'] = array_merge($this->app['searchable'], $searchable);
+		}
 	}
 
 	/**

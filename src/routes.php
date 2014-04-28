@@ -13,5 +13,20 @@
 	Route::get('/reset', 		array('as' => 'reset',  'uses' => 'Pulpitum\Auth\Controllers\IndexController@getReset'));
 	Route::post('/reset', 		array('as' => 'postReset',  'uses' => 'Pulpitum\Auth\Controllers\IndexController@postReset', "before"=>"csrf"));
 
-	Route::get('/admin/profile', 		array('as' => 'profile',  'uses' => 'Pulpitum\Auth\Controllers\Admin\UsersController@getProfile'));
+	Route::get('/admin/profile', 	array('as' => 'profile',  'uses' => 'Pulpitum\Auth\Controllers\Admin\UsersController@getProfile',"before"=>"basicAuth"));
+	Route::get('user', 				array('as' => 'user_profile',  'uses' => 'Pulpitum\Auth\Controllers\IndexController@getUser',"before"=>"basicAuth"));
+
+
+	if(class_exists("Sentry"))
+		$list = Sentry::findAllUsers();
+	else{
+		$users = new \Pulpitum\Auth\Models\Master\Users;
+		$list = $users->where("activated",1)->get();
+	}
+	foreach ($list as $user) {
+		if($user->activated == 0)
+			continue;
+		$slug = S::dasherize($user->identifier);
+		Route::get($slug, array('as' => "user_".$user->id, 'uses' => 'Pulpitum\Auth\Controllers\IndexController@getPublicUserProfile'));
+	}
 ?>
